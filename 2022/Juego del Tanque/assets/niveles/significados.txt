@@ -1,0 +1,15 @@
+jugador = posición inicial del jugador (obligatorio)
+# = piedra (bloque irrompible)
+M = madera con 4 puntos de vida (bloque rompible)
+C = cristal (bloque rompible y muy frágil)
+D = disparador inteligente
+$ = caja
+. = espacio vacío
+
+otra cosa significaría directamente 
+la creación de un objeto. Ejemplo:
+Wood(position, 5)
+
+
+
+

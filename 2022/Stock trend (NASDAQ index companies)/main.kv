@@ -1,0 +1,148 @@
+#:import Factory kivy.factory.Factory
+
+
+<InputScreen>:
+    orientation: 'vertical'
+
+    # Title
+    Label:
+        text: 'Please choose a company'
+        size_hint_y: .15
+
+    # Content
+    BoxLayout:
+        # Filters
+        BoxLayout:
+            size_hint_x: .3
+            orientation: 'vertical'
+            # Title
+            Label:
+                text: '[b]Filters[/b]'
+                markup: True
+                size_hint_y: None
+                height: '30dp'
+            # Filters
+            BoxLayout:
+                orientation: 'vertical'
+                # Country
+                FiltersWidget:
+                    title: 'Country'
+                    ScrollView:
+                        ScrollViewContainer:
+                            id: country_filters_container
+                # Sector
+                FiltersWidget:
+                    title: 'Sector'
+                    ScrollView:
+                        ScrollViewContainer:
+                            id: sector_filters_container
+                # Market cap
+                FiltersWidget:
+                    title: 'Market Cap'
+                    id: marketcap_filters
+                    Label:
+                        text: 'Minimum'
+                    IntInput:
+                        id: min_marketcap
+                    Label:
+                        text: 'Maximum'
+                    IntInput:
+                        id: max_marketcap
+
+        # Search and results
+        BoxLayout:
+            orientation: 'vertical'
+            # Search bar
+            BoxLayout:
+                size_hint_y: None
+                height: '40dp'
+                # Bar
+                TextInput:
+                    id: search_bar
+                    hint_text: 'Company name'
+                    font_size: self.height / 1.9
+                    multiline: False
+                    on_text_validate: root.apply_filters()
+                # Button
+                Button:
+                    text: 'Apply filters'
+                    size_hint_x: .3
+                    on_release: root.apply_filters()
+
+            # Results
+            ScrollView:
+                id: page_container
+                ScrollViewContainer:
+
+            # Page buttons
+            BoxLayout:
+                height: '30dp'
+                size_hint_y: None
+                # Previous page button
+                Button:
+                    id: previous_page_btn
+                    text: 'Previous page'
+                    on_release: root.go_to_page(root.current_page_idx - 1)
+                # Page info
+                Label:
+                    id: page_info_label
+                # Next page button
+                Button:
+                    id: next_page_btn
+                    text: 'Next page'
+                    on_release: root.go_to_page(root.current_page_idx + 1)
+
+
+<CompanyWidget>:
+    height: '25dp'
+    size_hint_y: None
+    # Symbol button
+    Button:
+        text: root.symbol
+        size_hint_x: .2
+        background_color: .5, .5, .5
+        on_release: Factory.TimePeriodPopup(root.symbol).open()
+    # Name label
+    Label:
+        text: root.name
+        size_hint_x: .8
+        text_size: self.size
+        halign: 'left'
+
+
+<ScrollViewContainer>:
+    orientation: 'vertical'
+    size_hint_y: None
+    height: self.minimum_height
+
+
+<FiltersWidget>:
+    orientation: 'vertical'
+    Label:
+        size_hint_y: None
+        height: '30dp'
+        text: root.title
+
+
+<IntInput@TextInput>:
+    hint_text: 'Enter a number'
+    multiline: False
+    input_filter: 'int'
+    font_size: self.height/1.8
+
+
+<TimePeriodPopup>:
+    title: 'Please select a time period'
+    size_hint: .5, .5
+    # Content
+    BoxLayout:
+        orientation: 'vertical'
+        # Radio buttons
+        BoxLayout:
+            id: radio_btns_layout
+        # Done button
+        Button:
+            text: 'Done'
+            size_hint_y: .2
+            on_release: root.done_btn_pressed()
+            disabled: not root.time_period_selected

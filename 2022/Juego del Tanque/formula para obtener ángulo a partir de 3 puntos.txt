@@ -1,0 +1,21 @@
+Punto A = (Ax, Ay)
+Punto B = (Bx, By)
+Punto C = (Cx, Cy)
+
+angleAB = atan2(Ax - Bx, By - Ay)
+angleBC = atan2(Bx - Cx, Cy - By)
+angle = 180 + angleBC - angleAB	
+
+
+### atan2(y,x) = sgn(x)**2 * arctan(x/y) + [1-sgn(x)]/2 * [1+sgn(y) - sgn(y)**2] * π ###
+
+atan2(y,x) = {                       
+	arctan(y/x)       if x > 0,
+	arctan(y/x) + π  if x < 0 and y >= 0,
+	arctan(y/x) - π  if x < 0 and y < 0,
+	+π/2             if x = 0 and y > 0,
+	-π/2             if x = 0 alf y < 0,
+	undefined         if x = 0 and y = 0
+}
+
+arctan(x) = tan**(-1)(x)

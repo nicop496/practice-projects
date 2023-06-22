@@ -1,0 +1,25 @@
+<Aplicacion>:
+    id: App
+    orientation: 'vertical'
+    padding: 10
+    canvas:
+        Color:
+            rgb: self.color
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    
+    #----------------------#    
+    BoxLayout:
+        canvas:
+            Color:
+                rgb: App.color
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        Label:
+            font_size: 30
+            text: str(App.clicks)
+        Label:
+            font_size: 20
+            text: str(App.segundos)
