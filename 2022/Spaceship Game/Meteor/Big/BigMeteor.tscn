@@ -1,0 +1,31 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Meteor/Big/Big (1).png" type="Texture" id=1]
+[ext_resource path="res://Meteor/Big/BigMeteor.gd" type="Script" id=2]
+[ext_resource path="res://Meteor/Big/Big (3).png" type="Texture" id=3]
+[ext_resource path="res://Meteor/Big/Big (4).png" type="Texture" id=4]
+[ext_resource path="res://Meteor/Big/Big (2).png" type="Texture" id=5]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 48.0
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 5 ), ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": false,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="BigMeteor" type="Area2D"]
+script = ExtResource( 2 )
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+position = Vector2( -2.80142e-06, 0 )
+scale = Vector2( 0.979592, 1 )
+frames = SubResource( 2 )
+
+[connection signal="area_entered" from="." to="." method="_on_BigMeteor_area_entered"]

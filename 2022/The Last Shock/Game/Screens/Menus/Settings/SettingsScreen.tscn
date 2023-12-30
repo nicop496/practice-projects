@@ -1,0 +1,155 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Game/Screens/Menus/UIButton/UIButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Game/Screens/Menus/Settings/SettingsScreen.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Fonts/BasicFont.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Assets/Images/Buttons/Pressed/Switch.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Images/Buttons/Disabled/Switch.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Images/Buttons/Normal/Switch.png" type="Texture" id=6]
+
+[node name="SettingsScreen" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.803922 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -64.0
+margin_top = -35.5
+margin_right = 64.0
+margin_bottom = 35.5
+custom_constants/separation = 19
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Music" type="Control" parent="VBoxContainer"]
+margin_right = 128.0
+
+[node name="Label" type="Label" parent="VBoxContainer/Music"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -7.0
+margin_right = 40.0
+margin_bottom = 10.0
+custom_fonts/font = ExtResource( 3 )
+text = "Music"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/Music"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -24.0
+margin_top = -6.0
+margin_bottom = 6.0
+toggle_mode = true
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 4 )
+texture_disabled = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SFX" type="Control" parent="VBoxContainer"]
+margin_top = 19.0
+margin_right = 128.0
+margin_bottom = 19.0
+
+[node name="Label" type="Label" parent="VBoxContainer/SFX"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -7.0
+margin_right = 64.0
+margin_bottom = 7.0
+custom_fonts/font = ExtResource( 3 )
+text = "Sound FX"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/SFX"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -24.0
+margin_top = -6.0
+margin_bottom = 6.0
+toggle_mode = true
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 4 )
+texture_disabled = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fullscreen" type="Control" parent="VBoxContainer"]
+margin_top = 38.0
+margin_right = 128.0
+margin_bottom = 38.0
+
+[node name="Label" type="Label" parent="VBoxContainer/Fullscreen"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -7.0
+margin_right = 64.0
+margin_bottom = 7.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Full screen"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/Fullscreen"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -24.0
+margin_top = -6.0
+margin_bottom = 6.0
+toggle_mode = true
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 4 )
+texture_disabled = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="VBoxContainer/Fullscreen"]
+wait_time = 0.5
+
+[node name="DoneButton" parent="VBoxContainer" instance=ExtResource( 1 )]
+margin_top = 57.0
+margin_bottom = 71.0
+text = "Done"
+
+[connection signal="toggled" from="VBoxContainer/Music/TextureButton" to="." method="_on_MusicButton_toggled"]
+[connection signal="toggled" from="VBoxContainer/SFX/TextureButton" to="." method="_on_SFXButton_toggled"]
+[connection signal="toggled" from="VBoxContainer/Fullscreen/TextureButton" to="." method="_on_FullscreenButton_toggled"]
+[connection signal="timeout" from="VBoxContainer/Fullscreen/Timer" to="." method="_on_FullScreenTimer_timeout"]
+[connection signal="pressed" from="VBoxContainer/DoneButton" to="." method="_on_DoneButton_pressed"]

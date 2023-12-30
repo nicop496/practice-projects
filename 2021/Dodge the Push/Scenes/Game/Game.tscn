@@ -1,0 +1,115 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Scenes/Game/Game.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Game/player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Other/Gothic.TTF" type="DynamicFontData" id=3]
+[ext_resource path="res://Scenes/Game/PauseScreen/PauseScreen.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Game/PauseScreen/Pause Button.wav" type="AudioStream" id=5]
+[ext_resource path="res://Scenes/Game/PauseScreen/Pause Button Normal.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/Game/PauseScreen/Pause Button Colored.png" type="Texture" id=7]
+[ext_resource path="res://Scenes/Game/Obstacles/Obstacles.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Game/Background/BackGround.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Game/music.ogg" type="AudioStream" id=10]
+
+[sub_resource type="DynamicFont" id=1]
+size = 20
+font_data = ExtResource( 3 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 200, 200 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 8, 288 )
+
+[sub_resource type="SegmentShape2D" id=4]
+b = Vector2( 448, 0 )
+
+[node name="Game" type="Node2D"]
+pause_mode = 2
+script = ExtResource( 1 )
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 10 )
+volume_db = 3.0
+autoplay = true
+
+[node name="Control" type="Control" parent="."]
+margin_right = 320.0
+margin_bottom = 576.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackGround" parent="." instance=ExtResource( 9 )]
+pause_mode = 1
+
+[node name="Score" type="Label" parent="."]
+anchor_right = 1.0
+margin_top = 40.0
+margin_right = 304.0
+margin_bottom = 66.0
+custom_fonts/font = SubResource( 1 )
+text = "Score: 0"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+pause_mode = 1
+position = Vector2( 160, 104 )
+
+[node name="Obstacles" parent="." instance=ExtResource( 8 )]
+
+[node name="Pause" type="Node2D" parent="."]
+
+[node name="PauseScreen" parent="Pause" instance=ExtResource( 4 )]
+
+[node name="Button" type="TouchScreenButton" parent="Pause"]
+modulate = Color( 1, 1, 1, 0.862745 )
+position = Vector2( 8, 8 )
+scale = Vector2( 0.16, 0.16 )
+normal = ExtResource( 6 )
+pressed = ExtResource( 7 )
+shape = SubResource( 2 )
+visibility_mode = 1
+
+[node name="SoundEffect" type="AudioStreamPlayer2D" parent="Pause/Button"]
+position = Vector2( -50, -50 )
+scale = Vector2( 6.25, 6.25 )
+stream = ExtResource( 5 )
+volume_db = 1.0
+attenuation = 0.8
+
+[node name="Limits" type="Node2D" parent="."]
+
+[node name="LeftWall" type="KinematicBody2D" parent="Limits"]
+position = Vector2( -8, 288 )
+
+[node name="Collider" type="CollisionShape2D" parent="Limits/LeftWall"]
+shape = SubResource( 3 )
+
+[node name="RightWall" type="KinematicBody2D" parent="Limits"]
+position = Vector2( 328, 288 )
+
+[node name="Collider" type="CollisionShape2D" parent="Limits/RightWall"]
+shape = SubResource( 3 )
+
+[node name="GameOver" type="Area2D" parent="Limits"]
+position = Vector2( -64, 624 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Limits/GameOver"]
+shape = SubResource( 4 )
+
+[connection signal="pressed" from="Pause/Button" to="." method="_pause_button_pressed"]
+[connection signal="released" from="Pause/Button" to="." method="_pause_button_released"]
+[connection signal="body_entered" from="Limits/GameOver" to="." method="_on_GameOver_body_entered"]

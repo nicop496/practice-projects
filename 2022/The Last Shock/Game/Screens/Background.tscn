@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Images/Background.png" type="Texture" id=1]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Sprite
+
+
+const SPEED : int = 30
+onready var size = get_parent().motion_mirroring
+
+func _process(delta):
+	offset += Vector2(SPEED, SPEED) * delta
+	if offset >= size / 2:
+		offset = Vector2.ZERO
+"
+
+[node name="Background" type="ParallaxBackground"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.5, 0.5 )
+motion_mirroring = Vector2( 1024, 1024 )
+
+[node name="BackgroundSprite" type="Sprite" parent="ParallaxLayer"]
+modulate = Color( 0.458824, 0.458824, 0.458824, 1 )
+texture = ExtResource( 1 )
+script = SubResource( 1 )

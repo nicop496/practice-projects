@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/MoneyCoin.wav-d7ed2e10353313f58d5f072c18f63a7f.sample"
+
+[deps]
+
+source_file="res://Level/Objects/Audio/MoneyCoin.wav"
+dest_files=[ "res://.import/MoneyCoin.wav-d7ed2e10353313f58d5f072c18f63a7f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

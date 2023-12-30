@@ -1,0 +1,38 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://assets/imagenes/ambiente o decoracion/ardilla/5.png" type="Texture" id=1]
+[ext_resource path="res://assets/imagenes/ambiente o decoracion/ardilla/6.png" type="Texture" id=2]
+[ext_resource path="res://assets/imagenes/ambiente o decoracion/ardilla/4.png" type="Texture" id=3]
+[ext_resource path="res://assets/imagenes/ambiente o decoracion/ardilla/3.png" type="Texture" id=4]
+[ext_resource path="res://assets/imagenes/ambiente o decoracion/ardilla/1.png" type="Texture" id=5]
+[ext_resource path="res://assets/imagenes/ambiente o decoracion/ardilla/2.png" type="Texture" id=6]
+[ext_resource path="res://scripts/ardilla.gd" type="Script" id=7]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 320, 160 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 1 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 10.0
+} ]
+
+[node name="ardilla" type="Area2D"]
+pause_mode = 1
+scale = Vector2( 0.02, 0.02 )
+script = ExtResource( 7 )
+
+[node name="collider" type="CollisionShape2D" parent="."]
+position = Vector2( 320, 239 )
+shape = SubResource( 1 )
+
+[node name="sprite" type="AnimatedSprite" parent="."]
+position = Vector2( 320, 240 )
+frames = SubResource( 2 )
+frame = 5
+playing = true
+offset = Vector2( 0, 1.14441e-05 )
+
+[connection signal="body_entered" from="." to="." method="_on_ardilla_body_entered"]

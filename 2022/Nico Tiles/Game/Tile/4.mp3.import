@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/4.mp3-f1bd85e11ba94d0838721c76e07f6ff4.mp3str"
+
+[deps]
+
+source_file="res://Game/Tile/4.mp3"
+dest_files=[ "res://.import/4.mp3-f1bd85e11ba94d0838721c76e07f6ff4.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

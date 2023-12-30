@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/electrocuted.mp3-36a983f4ecb6f2aac6045a798f82fcc3.mp3str"
+
+[deps]
+
+source_file="res://Player/Audio/electrocuted.mp3"
+dest_files=[ "res://.import/electrocuted.mp3-36a983f4ecb6f2aac6045a798f82fcc3.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

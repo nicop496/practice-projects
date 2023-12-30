@@ -1,0 +1,99 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Game/Screens/Levels/BaseLevel/BaseLevel.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Game/Screens/Levels/LevelObjects/StaticPlatform.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Game/Screens/Levels/LevelObjects/Door.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Game/Screens/Levels/LevelObjects/FloorButton.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Game/Screens/Levels/LevelObjects/Coin.tscn" type="PackedScene" id=6]
+
+[node name="2" instance=ExtResource( 1 )]
+
+[node name="BareWires" parent="." index="3"]
+tile_data = PoolIntArray( 786446, 0, 3, 786447, 0, 131075, 786448, 0, 131075, 786449, 0, 131075, 786450, 0, 131075, 786451, 0, 131075, 786452, 0, 131075, 786453, 0, 131075, 786454, 0, 131075, 786455, 0, 131075, 786456, 0, 131075, 786457, 0, 3, 1179652, 0, 0, 1179653, 0, 131075, 1179654, 0, 3, 1245188, 0, 65539, 1310724, 0, 3 )
+
+[node name="Wires" parent="." index="4"]
+tile_data = PoolIntArray( 36, 0, 65536, 37, 0, 1, 38, 0, 1, 39, 0, 1, 40, 0, 1, 41, 0, 1, 42, 0, 1, 43, 0, 1, 44, 0, 1, 45, 0, 1, 46, 0, 1, 47, 0, 2, 65572, 0, 131075, 131108, 0, 131075, 196644, 0, 131075, 262180, 0, 196608, 262181, 0, 1, 262182, 0, 1, 262183, 0, 65538, 262188, 0, 65536, 262189, 0, 1, 262190, 0, 1, 262191, 0, 2, 327719, 0, 131075, 327724, 0, 131075, 393255, 0, 131075, 393257, 0, 0, 393258, 0, 1, 393259, 0, 1, 393260, 0, 131074, 458779, 0, 65536, 458780, 0, 1, 458781, 0, 1, 458782, 0, 1, 458783, 0, 1, 458784, 0, 1, 458785, 0, 1, 458786, 0, 1, 458787, 0, 1, 458788, 0, 1, 458789, 0, 1, 458790, 0, 1, 458791, 0, 131074, 458796, 0, 131075, 524315, 0, 131075, 524327, 0, 196608, 524328, 0, 1, 524329, 0, 1, 524330, 0, 2, 524332, 0, 131075, 589851, 0, 131075, 589868, 0, 131075, 655387, 0, 131075, 655397, 0, 65536, 655398, 0, 1, 655399, 0, 1, 655400, 0, 1, 655401, 0, 1, 655402, 0, 1, 655403, 0, 1, 655404, 0, 196610, 720923, 0, 131075, 720933, 0, 131075, 786444, 0, 65536, 786445, 0, 1, 786446, 0, 2, 786457, 0, 0, 786458, 0, 1, 786459, 0, 131074, 786469, 0, 131075, 851980, 0, 131075, 851995, 0, 131075, 852005, 0, 131075, 917516, 0, 131075, 917531, 0, 131075, 917541, 0, 131075, 983052, 0, 131075, 983067, 0, 131075, 983077, 0, 131075, 1048588, 0, 131075, 1048596, 0, 65536, 1048597, 0, 1, 1048598, 0, 1, 1048599, 0, 1, 1048600, 0, 65538, 1048603, 0, 131075, 1048613, 0, 131075, 1114124, 0, 131075, 1114132, 0, 131075, 1114136, 0, 131075, 1114139, 0, 196611, 1114149, 0, 131075, 1179654, 0, 0, 1179655, 0, 1, 1179656, 0, 1, 1179657, 0, 1, 1179658, 0, 1, 1179659, 0, 1, 1179660, 0, 196610, 1179668, 0, 131075, 1179672, 0, 131075, 1179685, 0, 131075, 1245204, 0, 131075, 1245208, 0, 131075, 1245221, 0, 131075, 1310724, 0, 65539, 1310738, 0, 65536, 1310739, 0, 1, 1310740, 0, 196610, 1310744, 0, 196608, 1310745, 0, 1, 1310746, 0, 1, 1310747, 0, 1, 1310748, 0, 1, 1310749, 0, 1, 1310750, 0, 1, 1310751, 0, 1, 1310752, 0, 1, 1310753, 0, 1, 1310754, 0, 1, 1310755, 0, 1, 1310756, 0, 1, 1310757, 0, 196610, 1376260, 0, 131075, 1376274, 0, 131075, 1441796, 0, 131072, 1441797, 0, 1, 1441798, 0, 1, 1441799, 0, 1, 1441800, 0, 1, 1441801, 0, 65537, 1441802, 0, 1, 1441803, 0, 1, 1441804, 0, 65538, 1441810, 0, 131075, 1507332, 0, 131075, 1507337, 0, 131075, 1507340, 0, 131075, 1507346, 0, 131075, 1572868, 0, 131075, 1572873, 0, 131075, 1572876, 0, 196608, 1572877, 0, 1, 1572878, 0, 1, 1572879, 0, 1, 1572880, 0, 1, 1572881, 0, 1, 1572882, 0, 196610, 1638404, 0, 196608, 1638405, 0, 1, 1638406, 0, 1, 1638407, 0, 1, 1638408, 0, 1, 1638409, 0, 196610 )
+
+[node name="StaticPlatform" parent="OtherObjects" index="0" instance=ExtResource( 2 )]
+position = Vector2( 208, 288 )
+
+[node name="StaticPlatform4" parent="OtherObjects" index="1" instance=ExtResource( 2 )]
+position = Vector2( 448, 256 )
+
+[node name="StaticPlatform6" parent="OtherObjects" index="2" instance=ExtResource( 2 )]
+position = Vector2( 448, 192 )
+
+[node name="StaticPlatform7" parent="OtherObjects" index="3" instance=ExtResource( 2 )]
+position = Vector2( 640, 64 )
+
+[node name="StaticPlatform3" parent="OtherObjects" index="4" instance=ExtResource( 2 )]
+position = Vector2( 592, 288 )
+scale = Vector2( -1, 1 )
+
+[node name="StaticPlatform5" parent="OtherObjects" index="5" instance=ExtResource( 2 )]
+position = Vector2( 592, 224 )
+scale = Vector2( -1, 1 )
+
+[node name="StaticPlatform8" parent="OtherObjects" index="6" instance=ExtResource( 2 )]
+position = Vector2( 704, 64 )
+scale = Vector2( -1, 1 )
+
+[node name="Door" parent="OtherObjects" index="7" groups=[
+"Btn2",
+] instance=ExtResource( 4 )]
+position = Vector2( 760, 40 )
+timer = 2.5
+
+[node name="FloorButton" parent="OtherObjects" index="8" instance=ExtResource( 5 )]
+position = Vector2( 592, 32 )
+rotation = 1.5708
+group = "Btn2"
+
+[node name="Coin" parent="Coins" index="0" instance=ExtResource( 6 )]
+position = Vector2( 696, 136 )
+
+[node name="Coin2" parent="Coins" index="1" instance=ExtResource( 6 )]
+position = Vector2( 648, 104 )
+
+[node name="Coin3" parent="Coins" index="2" instance=ExtResource( 6 )]
+position = Vector2( 608, 32 )
+
+[node name="Coin4" parent="Coins" index="3" instance=ExtResource( 6 )]
+position = Vector2( 232, 280 )
+
+[node name="Coin14" parent="Coins" index="4" instance=ExtResource( 6 )]
+position = Vector2( 568, 280 )
+
+[node name="Coin15" parent="Coins" index="5" instance=ExtResource( 6 )]
+position = Vector2( 472, 248 )
+
+[node name="Coin16" parent="Coins" index="6" instance=ExtResource( 6 )]
+position = Vector2( 568, 216 )
+
+[node name="Coin17" parent="Coins" index="7" instance=ExtResource( 6 )]
+position = Vector2( 472, 184 )
+
+[node name="Coin18" parent="Coins" index="8" instance=ExtResource( 6 )]
+position = Vector2( 672, 56 )
+
+[node name="HighScore" parent="." index="7"]
+margin_left = 80.0
+margin_top = 368.0
+margin_right = 144.0
+margin_bottom = 400.0
+
+[node name="Portal" parent="." index="8"]
+position = Vector2( 920, 40 )
+
+[node name="FloorButton" parent="." index="9"]
+position = Vector2( 136, 352 )
+
+[node name="Door" parent="." index="10"]
+position = Vector2( 200, 328 )
+
+[node name="Player" parent="." index="11"]
+position = Vector2( 96, 344 )
+
+[node name="Lightning" parent="." index="12"]
+position = Vector2( 0, -272 )
+speed = Vector2( 55, 0 )

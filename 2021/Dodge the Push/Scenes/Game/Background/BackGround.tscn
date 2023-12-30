@@ -1,0 +1,462 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Game/Background/BackgroundParticle.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Game/Background/Hexagon.gd" type="Script" id=2]
+
+[node name="BackGround" type="Node2D"]
+
+[node name="Hexagons" type="Node2D" parent="."]
+modulate = Color( 1, 1, 1, 0.6 )
+
+[node name="Hexagon" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 288, 0 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon2" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 224, 0 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon3" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 160, 0 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon4" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 96, 0 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon5" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 32, 0 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon6" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 0, 48 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon7" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 64, 48 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon8" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 128, 48 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon9" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 192, 48 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon10" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.431373, 0.431373, 0.431373, 1 )
+position = Vector2( 256, 48 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon11" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 320, 48 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon12" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 32, 96 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon13" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 32, 96 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon14" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 32, 96 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon15" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 96, 96 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon16" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 160, 96 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon17" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 224, 96 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon18" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 288, 96 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon19" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 0, 144 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon20" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 64, 144 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon21" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 128, 144 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon22" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 192, 144 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon23" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 256, 144 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon24" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 320, 144 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon25" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 32, 192 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon26" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 96, 192 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon27" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 160, 192 )
+rotation = -3.14159
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon28" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 224, 192 )
+rotation = -3.14159
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon29" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 288, 192 )
+rotation = -3.14159
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon30" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 0, 240 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon31" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 64, 240 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon32" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 128, 240 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon33" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 192, 240 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon34" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 256, 240 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon35" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 320, 240 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon36" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 32, 288 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon37" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 96, 288 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon38" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 160, 288 )
+rotation = -3.14159
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon39" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 224, 288 )
+rotation = -3.14159
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon40" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 288, 288 )
+rotation = -3.14159
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon41" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 0, 336 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon42" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 64, 336 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon43" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 128, 336 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon44" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 192, 336 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon45" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 256, 336 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon46" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 320, 336 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon47" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 32, 384 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon48" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 96, 384 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon49" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 160, 384 )
+rotation = -3.14159
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon50" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 224, 384 )
+rotation = -3.14159
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon51" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 288, 384 )
+rotation = -3.14159
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon52" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 0, 432 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon53" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 64, 432 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon54" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 128, 432 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon55" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 192, 432 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon56" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 256, 432 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon57" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 320, 432 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon58" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 32, 480 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon59" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 96, 480 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon60" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 160, 480 )
+rotation = -3.14159
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon61" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 224, 480 )
+rotation = -3.14159
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon62" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 288, 480 )
+rotation = -3.14159
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon63" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 0, 528 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon64" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 64, 528 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon65" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 128, 528 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon66" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 192, 528 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon67" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 256, 528 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon68" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 320, 528 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon69" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 32, 576 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon70" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 96, 576 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon71" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 160, 576 )
+rotation = -3.14159
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon72" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 224, 576 )
+rotation = -3.14159
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hexagon73" type="Sprite" parent="Hexagons"]
+modulate = Color( 0.43, 0.43, 0.43, 1 )
+position = Vector2( 288, 576 )
+rotation = -3.14159
+texture = ExtResource( 1 )
+script = ExtResource( 2 )

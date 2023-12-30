@@ -1,0 +1,211 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://assets/audio/musica de fondo.mp3" type="AudioStream" id=1]
+[ext_resource path="res://assets/audio/portal.mp3" type="AudioStream" id=2]
+[ext_resource path="res://assets/audio/ambiente.mp3" type="AudioStream" id=3]
+[ext_resource path="res://assets/audio/viento fuerte.mp3" type="AudioStream" id=4]
+[ext_resource path="res://escenas/Jugador.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scripts/JUEGO.gd" type="Script" id=6]
+[ext_resource path="res://fuente.ttf" type="DynamicFontData" id=7]
+
+[sub_resource type="Animation" id=1]
+resource_name = "tiempo +1"
+tracks/0/type = "value"
+tracks/0/path = NodePath("../CanvasLayer/Control/sprite +1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 982, 560 ), Vector2( 982, 510 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../CanvasLayer/Control/sprite +1:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "tiempo -1"
+tracks/0/type = "value"
+tracks/0/path = NodePath("../CanvasLayer/Control/sprite -1:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../CanvasLayer/Control/sprite -1:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 982, 560 ), Vector2( 982, 510 ) ]
+}
+
+[sub_resource type="DynamicFont" id=3]
+size = 400
+outline_size = 1
+outline_color = Color( 0, 0, 0, 0.54902 )
+use_filter = true
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 45
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_char = 4
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 45
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 7 )
+
+[node name="JUEGO" type="Node2D"]
+pause_mode = 2
+scale = Vector2( 4, 4 )
+script = ExtResource( 6 )
+TIME_PER_LEVEL = 5
+
+[node name="animaciones" type="Node" parent="."]
+
+[node name="tiempo +1" type="AnimationPlayer" parent="animaciones"]
+"anims/tiempo +1" = SubResource( 1 )
+
+[node name="tiempo -1" type="AnimationPlayer" parent="animaciones"]
+"anims/tiempo -1" = SubResource( 2 )
+
+[node name="sonidos" type="Node" parent="."]
+
+[node name="ambiente" type="AudioStreamPlayer" parent="sonidos"]
+pause_mode = 2
+stream = ExtResource( 3 )
+autoplay = true
+
+[node name="viento" type="AudioStreamPlayer" parent="sonidos"]
+pause_mode = 2
+stream = ExtResource( 4 )
+volume_db = -5.0
+autoplay = true
+
+[node name="portal" type="AudioStreamPlayer" parent="sonidos"]
+stream = ExtResource( 2 )
+
+[node name="musica" type="AudioStreamPlayer" parent="sonidos"]
+pause_mode = 1
+stream = ExtResource( 1 )
+autoplay = true
+
+[node name="oscuridad" type="CanvasModulate" parent="."]
+color = Color( 0.509804, 0.407843, 0.694118, 0.819608 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="cuenta atras" type="CenterContainer" parent="CanvasLayer/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="numero" type="Label" parent="CanvasLayer/Control/cuenta atras"]
+visible = false
+margin_left = 370.0
+margin_top = 41.0
+margin_right = 653.0
+margin_bottom = 598.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 0, 0, 0.282353 )
+text = "5"
+
+[node name="texto tiempo" type="Label" parent="CanvasLayer/Control"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1024.0
+margin_top = -64.0
+margin_right = -16.0
+margin_bottom = -16.0
+custom_fonts/font = SubResource( 4 )
+text = "n"
+align = 2
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="sprite +1" type="Sprite" parent="CanvasLayer/Control"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 982, 510 )
+
+[node name="texto +1" type="Label" parent="CanvasLayer/Control/sprite +1"]
+anchor_bottom = 1.0
+margin_left = -8.0
+margin_top = -32.0
+margin_right = 22.0
+margin_bottom = 31.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0.156863, 0.917647, 0, 1 )
+text = "+1"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="sprite -1" type="Sprite" parent="CanvasLayer/Control"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 982, 510 )
+
+[node name="texto -1" type="Label" parent="CanvasLayer/Control/sprite -1"]
+anchor_bottom = 1.0
+margin_left = -8.0
+margin_top = -32.0
+margin_right = 22.0
+margin_bottom = 31.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0.976471, 0, 0, 1 )
+text = "-1"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Jugador" parent="." instance=ExtResource( 5 )]
+pause_mode = 1
+SPEED = 650
+JUMP = 700
+GRAVITY = 30
+IMPULSE = 2000
+
+[node name="tiempo entre niveles" type="Timer" parent="."]
+one_shot = true

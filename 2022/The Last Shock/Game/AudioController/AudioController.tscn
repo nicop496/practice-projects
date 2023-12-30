@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/Audio/SoundEffects/UIButton.mp3" type="AudioStream" id=1]
+[ext_resource path="res://Game/AudioController/AudioController.gd" type="Script" id=2]
+[ext_resource path="res://Game/AudioController/SoundEffects.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Audio/SoundEffects/Portal.mp3" type="AudioStream" id=4]
+
+[node name="AudioController" type="Node"]
+script = ExtResource( 2 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+pause_mode = 1
+volume_db = -5.0
+
+[node name="UIButton" type="AudioStreamPlayer2D" parent="."]
+pause_mode = 2
+stream = ExtResource( 1 )
+max_distance = 1e+10
+attenuation = 1e-05
+script = ExtResource( 3 )
+
+[node name="PortalSFX" type="AudioStreamPlayer2D" parent="."]
+pause_mode = 2
+stream = ExtResource( 4 )
+volume_db = 3.0
+max_distance = 1e+10
+attenuation = 1e-05
+script = ExtResource( 3 )

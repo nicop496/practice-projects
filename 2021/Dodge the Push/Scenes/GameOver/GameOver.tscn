@@ -1,0 +1,164 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Other/Gothic negrita.TTF" type="DynamicFontData" id=1]
+[ext_resource path="res://Other/Gothic.TTF" type="DynamicFontData" id=2]
+[ext_resource path="res://Scenes/GameOver/GameOver.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/GameOver/Game Over.wav" type="AudioStream" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+outline_size = 2
+outline_color = Color( 0.560784, 0.345098, 0.345098, 1 )
+extra_spacing_char = 6
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "GameOver"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Score:visible_characters")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, -1 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../HighScore:visible_characters")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, -1 ]
+}
+
+[sub_resource type="DynamicFont" id=3]
+size = 19
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 19
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 22
+extra_spacing_char = 1
+font_data = ExtResource( 2 )
+
+[node name="GameOver" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+volume_db = 9.0
+
+[node name="UI" type="Control" parent="."]
+pause_mode = 2
+margin_right = 320.0
+margin_bottom = 576.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BG" type="ColorRect" parent="UI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.627451 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HContainer" type="VBoxContainer" parent="UI"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -96.0
+margin_bottom = 16.0
+custom_constants/separation = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="UI/HContainer"]
+margin_right = 320.0
+margin_bottom = 50.0
+custom_fonts/font = SubResource( 1 )
+text = "Game Over"
+align = 1
+valign = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/HContainer/Title"]
+anims/GameOver = SubResource( 2 )
+
+[node name="BlankSpace" type="Tabs" parent="UI/HContainer"]
+margin_top = 50.0
+margin_right = 320.0
+margin_bottom = 74.0
+
+[node name="Score" type="Label" parent="UI/HContainer"]
+margin_top = 74.0
+margin_right = 320.0
+margin_bottom = 99.0
+custom_fonts/font = SubResource( 3 )
+text = "Score: "
+align = 1
+valign = 1
+
+[node name="HighScore" type="Label" parent="UI/HContainer"]
+margin_top = 99.0
+margin_right = 320.0
+margin_bottom = 124.0
+custom_fonts/font = SubResource( 4 )
+text = "High Score: "
+align = 1
+valign = 1
+
+[node name="BlankSpace2" type="Tabs" parent="UI/HContainer"]
+margin_top = 124.0
+margin_right = 320.0
+margin_bottom = 148.0
+
+[node name="BlankSpace3" type="Tabs" parent="UI/HContainer"]
+margin_top = 148.0
+margin_right = 320.0
+margin_bottom = 172.0
+
+[node name="BlankSpace4" type="Tabs" parent="UI/HContainer"]
+margin_top = 172.0
+margin_right = 320.0
+margin_bottom = 196.0
+
+[node name="RestartLabel" type="Label" parent="UI/HContainer"]
+visible = false
+margin_top = 196.0
+margin_right = 320.0
+margin_bottom = 224.0
+custom_fonts/font = SubResource( 5 )
+text = "Tap to restart"
+align = 1
+valign = 1
+
+[node name="RestartTimer" type="Timer" parent="UI/HContainer"]
+
+[connection signal="animation_finished" from="UI/HContainer/Title/AnimationPlayer" to="." method="_on_animation_finished"]
+[connection signal="timeout" from="UI/HContainer/RestartTimer" to="." method="_on_RestartTimer_timeout"]

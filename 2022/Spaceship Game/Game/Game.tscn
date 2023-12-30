@@ -1,0 +1,463 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Game/Buttons/Buttons.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Game/Game.gd" type="Script" id=3]
+[ext_resource path="res://Meteor/explosion.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Game/music.ogg" type="AudioStream" id=5]
+[ext_resource path="res://Meteor/rock_break.ogg" type="AudioStream" id=6]
+[ext_resource path="res://Bungee-Regular.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://Player/ProgressBar/ProgressBar.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Game/Background/BackGround.tscn" type="PackedScene" id=9]
+[ext_resource path="res://PowerUp/LifePowerUp/life.wav" type="AudioStream" id=10]
+[ext_resource path="res://PowerUp/AmmoPowerUp/ammo.wav" type="AudioStream" id=11]
+[ext_resource path="res://Player/ProgressBar/ammo bar.png" type="Texture" id=13]
+[ext_resource path="res://Game/Walls.tscn" type="PackedScene" id=15]
+
+[sub_resource type="Animation" id=1]
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Meteors/ExplosionSound:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BackGround:moving")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("GameOver/GameOver:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.8, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.392157 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("GameOver/GameOver:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("GameOver/ColorRect:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("GameOver/ColorRect:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("GameOver/GameOver:percent_visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0.8, 2.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+
+[sub_resource type="Animation" id=2]
+tracks/0/type = "value"
+tracks/0/path = NodePath("Player:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true, false, true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("GameOver/ColorRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("GameOver/ColorRect:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Start"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 160, 648 ), Vector2( 160, 432 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BackGround:moving")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "TapToRestart"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("GameOver/TapToRestart:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="DynamicFont" id=5]
+size = 29
+outline_size = 4
+outline_color = Color( 0.666667, 0, 0, 1 )
+use_filter = true
+extra_spacing_char = 8
+extra_spacing_space = 20
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=6]
+extra_spacing_char = 2
+extra_spacing_space = 1
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 15
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 7 )
+
+[node name="Game" type="Node2D"]
+pause_mode = 2
+script = ExtResource( 3 )
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+pause_mode = 1
+stream = ExtResource( 5 )
+autoplay = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+pause_mode = 2
+anims/GameOver = SubResource( 1 )
+anims/Hit = SubResource( 2 )
+anims/Start = SubResource( 3 )
+anims/TapToRestart = SubResource( 4 )
+
+[node name="Timers" type="Node2D" parent="."]
+pause_mode = 1
+
+[node name="Score" type="Timer" parent="Timers"]
+pause_mode = 1
+wait_time = 0.1
+autostart = true
+
+[node name="DifficultyTimer" type="Timer" parent="Timers"]
+wait_time = 15.0
+autostart = true
+
+[node name="CreateTimer" type="Timer" parent="Timers"]
+pause_mode = 1
+wait_time = 3.0
+autostart = true
+
+[node name="BackGround" parent="." instance=ExtResource( 9 )]
+pause_mode = 1
+position = Vector2( 0, 0 )
+moving = false
+
+[node name="Walls" parent="." instance=ExtResource( 15 )]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+pause_mode = 1
+position = Vector2( 160, 432 )
+
+[node name="Bullets" type="Node2D" parent="."]
+pause_mode = 1
+
+[node name="PowerUps" type="Node2D" parent="."]
+pause_mode = 1
+
+[node name="Life" type="AudioStreamPlayer2D" parent="PowerUps"]
+stream = ExtResource( 10 )
+volume_db = 8.0
+
+[node name="Ammo" type="AudioStreamPlayer2D" parent="PowerUps"]
+stream = ExtResource( 11 )
+volume_db = 5.0
+
+[node name="Meteors" type="Node2D" parent="."]
+pause_mode = 1
+
+[node name="ExplosionSound" type="AudioStreamPlayer" parent="Meteors"]
+stream = ExtResource( 4 )
+volume_db = -1.0
+
+[node name="BreakSound" type="AudioStreamPlayer" parent="Meteors"]
+stream = ExtResource( 6 )
+
+[node name="Buttons" parent="." instance=ExtResource( 2 )]
+pause_mode = 1
+position = Vector2( 160, 536 )
+
+[node name="Bars" type="VBoxContainer" parent="."]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 200.0
+margin_bottom = 66.0001
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LifeBar" parent="Bars" instance=ExtResource( 8 )]
+low_color = Color( 0.85098, 0.192157, 0.192157, 1 )
+medium_color = Color( 0.917647, 0.827451, 0.223529, 1 )
+high_color = Color( 0.313726, 0.792157, 0.682353, 1 )
+
+[node name="AmmoBar" parent="Bars" instance=ExtResource( 8 )]
+margin_top = 42.0
+margin_bottom = 58.0
+texture_under = ExtResource( 13 )
+texture_progress = ExtResource( 13 )
+low_color = Color( 1, 0, 0.54902, 1 )
+medium_color = Color( 1, 0, 0.54902, 1 )
+high_color = Color( 1, 0, 0.54902, 1 )
+
+[node name="GameOver" type="Control" parent="."]
+margin_right = 320.0
+margin_bottom = 608.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="GameOver"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+margin_left = -192.0
+margin_right = 512.0
+margin_bottom = 960.0
+color = Color( 1, 0.682353, 0.682353, 0.909804 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameOver" type="Label" parent="GameOver"]
+visible = false
+modulate = Color( 1, 1, 1, 0.392157 )
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -15.0
+margin_bottom = 15.0
+custom_fonts/font = SubResource( 5 )
+text = "Game Over"
+align = 1
+valign = 1
+percent_visible = 0.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TapToRestart" type="Label" parent="GameOver"]
+visible = false
+anchor_top = 0.553
+anchor_right = 1.0
+anchor_bottom = 0.579
+margin_top = -0.22403
+margin_bottom = 0.967957
+custom_fonts/font = SubResource( 6 )
+text = "Tap to restart"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score" type="VBoxContainer" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = 213.0
+margin_top = 8.0
+margin_right = 312.0
+margin_bottom = 102.0
+custom_constants/separation = 22
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HighScore" type="VBoxContainer" parent="Score"]
+margin_right = 99.0
+margin_bottom = 36.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Score/HighScore"]
+margin_right = 99.0
+margin_bottom = 16.0
+custom_fonts/font = SubResource( 7 )
+text = "HighScore:"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Value" type="HBoxContainer" parent="Score/HighScore"]
+margin_top = 20.0
+margin_right = 99.0
+margin_bottom = 36.0
+alignment = 2
+
+[node name="Value" type="Label" parent="Score/HighScore/Value"]
+margin_left = 37.0
+margin_right = 65.0
+margin_bottom = 16.0
+custom_fonts/font = SubResource( 7 )
+text = "0.0"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Score/HighScore/Value"]
+margin_left = 69.0
+margin_right = 99.0
+margin_bottom = 16.0
+custom_fonts/font = SubResource( 7 )
+text = "Km."
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score" type="VBoxContainer" parent="Score"]
+margin_top = 58.0
+margin_right = 99.0
+margin_bottom = 94.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Score/Score"]
+margin_right = 99.0
+margin_bottom = 16.0
+custom_fonts/font = SubResource( 7 )
+text = "Score:"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Value" type="HBoxContainer" parent="Score/Score"]
+margin_top = 20.0
+margin_right = 99.0
+margin_bottom = 36.0
+alignment = 2
+
+[node name="Value" type="Label" parent="Score/Score/Value"]
+margin_left = 37.0
+margin_right = 65.0
+margin_bottom = 16.0
+custom_fonts/font = SubResource( 7 )
+text = "0.0"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Score/Score/Value"]
+margin_left = 69.0
+margin_right = 99.0
+margin_bottom = 16.0
+custom_fonts/font = SubResource( 7 )
+text = "km."
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="timeout" from="Timers/Score" to="." method="_on_Score_timeout"]
+[connection signal="timeout" from="Timers/DifficultyTimer" to="." method="_on_DifficultyTimer_timeout"]
+[connection signal="timeout" from="Timers/CreateTimer" to="." method="_on_CreateTimer_timeout"]
+[connection signal="visibility_changed" from="GameOver/TapToRestart" to="." method="_on_TapToRestart_visibility_changed"]

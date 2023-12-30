@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Trampoline.mp3-a8af8cd46ebbccf80825b01feebb5520.mp3str"
+
+[deps]
+
+source_file="res://Level/Objects/Audio/Trampoline.mp3"
+dest_files=[ "res://.import/Trampoline.mp3-a8af8cd46ebbccf80825b01feebb5520.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,107 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://assets/imagenes/portal/portal 1.png" type="Texture" id=1]
+[ext_resource path="res://assets/imagenes/portal/portal 2.png" type="Texture" id=2]
+[ext_resource path="res://assets/imagenes/portal/portal 3.png" type="Texture" id=3]
+[ext_resource path="res://scripts/portal.gd" type="Script" id=4]
+[ext_resource path="res://assets/imagenes/portal/2.png" type="Texture" id=5]
+[ext_resource path="res://assets/imagenes/portal/1.png" type="Texture" id=6]
+[ext_resource path="res://assets/imagenes/portal/4.png" type="Texture" id=7]
+[ext_resource path="res://assets/imagenes/portal/3.png" type="Texture" id=8]
+[ext_resource path="res://assets/imagenes/portal/5.png" type="Texture" id=9]
+[ext_resource path="res://assets/imagenes/ambiente o decoracion/light.png" type="Texture" id=11]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "girar",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 5 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 9 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "explocion",
+"speed": 4.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 2.06839
+height = 2.49052
+
+[sub_resource type="Animation" id=3]
+resource_name = "desaparecer"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 0.01 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 180.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Light2D:energy")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.45, 0.0 ]
+}
+
+[node name="portal" type="Area2D"]
+pause_mode = 1
+script = ExtResource( 4 )
+
+[node name="sprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 1 )
+animation = "girar"
+playing = true
+
+[node name="collider" type="CollisionShape2D" parent="."]
+position = Vector2( 4.88538, 0.53252 )
+shape = SubResource( 2 )
+
+[node name="animaciones" type="AnimationPlayer" parent="."]
+anims/desaparecer = SubResource( 3 )
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 1.83532, 2.18271 )
+scale = Vector2( 1.61642, 3.24677 )
+texture = ExtResource( 11 )
+texture_scale = 0.01
+energy = 1.45
+
+[connection signal="body_entered" from="." to="." method="_on_portal_body_entered"]

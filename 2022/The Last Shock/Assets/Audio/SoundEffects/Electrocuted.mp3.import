@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Electrocuted.mp3-5bff09b79fb9d3a22a5c635b22b75088.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/SoundEffects/Electrocuted.mp3"
+dest_files=[ "res://.import/Electrocuted.mp3-5bff09b79fb9d3a22a5c635b22b75088.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

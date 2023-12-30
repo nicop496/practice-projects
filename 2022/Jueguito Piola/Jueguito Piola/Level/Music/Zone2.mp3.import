@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Zone2.mp3-8ed5e5ebeb151bf3b735131e71376ee3.mp3str"
+
+[deps]
+
+source_file="res://Level/Music/Zone2.mp3"
+dest_files=[ "res://.import/Zone2.mp3-8ed5e5ebeb151bf3b735131e71376ee3.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,157 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Player/Player.gd" type="Script" id=1]
+[ext_resource path="res://Player/Audio/jump.wav" type="AudioStream" id=2]
+[ext_resource path="res://Game/MarginButtons/MarginButtons.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Player/Audio/dash.mp3" type="AudioStream" id=4]
+[ext_resource path="res://Player/Images/Original/SpriteFrames.tres" type="SpriteFrames" id=5]
+[ext_resource path="res://Player/Audio/electrocuted.mp3" type="AudioStream" id=9]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Portal"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Curtain/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Curtain/ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 10, 10 ) ]
+}
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0, 0.677852 )
+colors = PoolColorArray( 1, 1, 1, 0.54902, 1, 1, 1, 0 )
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 7.95
+height = 0.0
+
+[node name="Player" type="KinematicBody2D"]
+script = ExtResource( 1 )
+MOVEMENT_SPEED = 70
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2( 0, -16 )
+rotating = true
+current = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Portal = SubResource( 1 )
+
+[node name="Timers" type="Node2D" parent="."]
+
+[node name="Dash" type="Timer" parent="Timers"]
+wait_time = 0.3
+one_shot = true
+
+[node name="GameOver" type="Timer" parent="Timers"]
+wait_time = 3.0
+one_shot = true
+
+[node name="ScoreTime" type="Timer" parent="Timers"]
+wait_time = 0.1
+
+[node name="JumpDelay" type="Timer" parent="Timers"]
+process_mode = 0
+wait_time = 0.2
+one_shot = true
+
+[node name="JumpOnEdge" type="Timer" parent="Timers"]
+process_mode = 0
+wait_time = 0.2
+one_shot = true
+
+[node name="SoundEffects" type="Node2D" parent="."]
+
+[node name="Dash" type="AudioStreamPlayer" parent="SoundEffects"]
+stream = ExtResource( 4 )
+
+[node name="Jump" type="AudioStreamPlayer" parent="SoundEffects"]
+stream = ExtResource( 2 )
+
+[node name="Electrocuted" type="AudioStreamPlayer" parent="SoundEffects"]
+stream = ExtResource( 9 )
+
+[node name="Dash" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 10
+lifetime = 0.5
+one_shot = true
+speed_scale = 2.0
+local_coords = false
+draw_order = 1
+gravity = Vector2( 0, 0 )
+color_ramp = SubResource( 2 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+frames = ExtResource( 5 )
+animation = "idle"
+frame = 9
+speed_scale = 2.0
+playing = true
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource( 3 )
+
+[node name="Curtain" type="Node2D" parent="."]
+z_index = 2
+
+[node name="ColorRect" type="ColorRect" parent="Curtain"]
+visible = false
+margin_left = -344.0
+margin_top = -168.0
+margin_right = 320.0
+margin_bottom = 184.0
+color = Color( 1, 1, 1, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginButtons" parent="." instance=ExtResource( 3 )]
+visible = false
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="timeout" from="Timers/GameOver" to="." method="_on_GameOver_timeout"]
+[connection signal="timeout" from="Timers/ScoreTime" to="." method="_on_ScoreTime_timeout"]

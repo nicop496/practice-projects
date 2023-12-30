@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Level/Objects/Scripts/Rat.gd" type="Script" id=5]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 0.917191, 2.38423 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 0.797377, 0.565718 )
+
+[node name="Rat" type="Area2D"]
+script = ExtResource( 5 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+speed_scale = 2.0
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 5.06756, 5.44819 )
+shape = SubResource( 3 )
+
+[node name="floor" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor"]
+position = Vector2( 1.34018, 8.47443 )
+shape = SubResource( 4 )
+
+[connection signal="body_entered" from="." to="." method="_on_Rat_body_entered"]
+[connection signal="body_exited" from="floor" to="." method="_on_floor_body_exited"]

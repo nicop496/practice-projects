@@ -1,0 +1,305 @@
+[gd_scene load_steps=36 format=2]
+
+[ext_resource path="res://assets/imagenes/jugador/2021-06-12_15.53.42.png" type="Texture" id=1]
+[ext_resource path="res://assets/imagenes/jugador/2021-06-12_15.54.05.png" type="Texture" id=2]
+[ext_resource path="res://assets/imagenes/jugador/2021-06-12_15.54.16.png" type="Texture" id=3]
+[ext_resource path="res://assets/imagenes/jugador/2021-06-12_15.53.52.png" type="Texture" id=4]
+[ext_resource path="res://assets/imagenes/jugador/2021-06-12_15.54.48.png" type="Texture" id=5]
+[ext_resource path="res://assets/imagenes/jugador/2021-06-12_15.54.59.png" type="Texture" id=6]
+[ext_resource path="res://assets/imagenes/jugador/2021-06-12_15.55.28.png" type="Texture" id=7]
+[ext_resource path="res://assets/imagenes/jugador/2021-06-12_15.55.47.png" type="Texture" id=8]
+[ext_resource path="res://scripts/Jugador.gd" type="Script" id=9]
+[ext_resource path="res://assets/imagenes/jugador/2021-06-12_15.55.13.png" type="Texture" id=10]
+[ext_resource path="res://assets/imagenes/jugador/2021-06-12_15.54.36.png" type="Texture" id=11]
+[ext_resource path="res://assets/imagenes/jugador/2021-06-12_15.54.36 - copia.png" type="Texture" id=12]
+[ext_resource path="res://assets/audio/dash.mp3" type="AudioStream" id=13]
+[ext_resource path="res://assets/audio/salto.wav" type="AudioStream" id=14]
+[ext_resource path="res://assets/audio/daño.mp3" type="AudioStream" id=15]
+[ext_resource path="res://assets/audio/perder.mp3" type="AudioStream" id=16]
+[ext_resource path="res://assets/audio/moneda.mp3" type="AudioStream" id=17]
+[ext_resource path="res://assets/imagenes/jugador/2021-06-20_17.17.57.png" type="Texture" id=18]
+[ext_resource path="res://assets/imagenes/jugador/2021-06-20_17.18.07.png" type="Texture" id=19]
+[ext_resource path="res://assets/imagenes/jugador/2021-06-20_17.18.33.png" type="Texture" id=20]
+[ext_resource path="res://assets/imagenes/jugador/2021-06-20_17.18.19.png" type="Texture" id=21]
+[ext_resource path="res://assets/imagenes/ambiente o decoracion/luz.png" type="Texture" id=22]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "idle",
+"speed": 3.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 10 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "run",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "dash",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 18 ), ExtResource( 21 ) ],
+"loop": false,
+"name": "jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 19 ), ExtResource( 20 ) ],
+"loop": false,
+"name": "fall",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 4.66667, 8 )
+
+[sub_resource type="Animation" id=3]
+length = 1.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true, false, true, false, true, false, true, true ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 1.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("camara:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1.5, 1.5 ), Vector2( 0.001, 0.001 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("camara:zoom")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1.4, 1.4 ), Vector2( 3, 3 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "telon"
+length = 1.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("animacion telon/telon/telon:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Gradient" id=6]
+offsets = PoolRealArray( 0, 0.00448431, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 0.615234, 0.615234, 0.615234, 0.952941, 0, 0, 0, 0.439216 )
+
+[sub_resource type="GradientTexture" id=7]
+gradient = SubResource( 6 )
+
+[sub_resource type="Curve" id=8]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.851136 ), -0.316667, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=9]
+curve = SubResource( 8 )
+
+[sub_resource type="Curve" id=10]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=11]
+curve = SubResource( 10 )
+
+[sub_resource type="ParticlesMaterial" id=12]
+trail_divisor = 4
+trail_size_modifier = SubResource( 11 )
+flag_disable_z = true
+gravity = Vector3( 1, 0, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 6.0
+scale_curve = SubResource( 9 )
+color_ramp = SubResource( 7 )
+
+[sub_resource type="ParticlesMaterial" id=13]
+render_priority = 10
+lifetime_randomness = 0.1
+emission_shape = 2
+emission_box_extents = Vector3( 5, 5, 1 )
+flag_disable_z = true
+direction = Vector3( 0, 0, 0 )
+spread = 180.0
+gravity = Vector3( 0, 100, 0 )
+initial_velocity = 42.02
+initial_velocity_random = 1.0
+angular_velocity = 592.95
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 1.0
+linear_accel = 18.49
+linear_accel_random = 1.0
+damping = 16.81
+damping_random = 1.0
+angle = 181.5
+angle_random = 0.43
+scale = 20.0
+scale_random = 1.0
+color = Color( 1, 0, 0, 1 )
+hue_variation = 0.1
+hue_variation_random = 1.0
+anim_speed = 128.0
+anim_speed_random = 1.0
+anim_offset = 1.0
+anim_offset_random = 1.0
+
+[node name="Jugador" type="KinematicBody2D"]
+scale = Vector2( 1.5, 1.5 )
+z_index = 3
+script = ExtResource( 9 )
+SPEED = -500
+
+[node name="sprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "idle"
+frame = 7
+playing = true
+
+[node name="collider" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
+[node name="camara" type="Camera2D" parent="."]
+position = Vector2( 0, 0.666667 )
+rotating = true
+current = true
+zoom = Vector2( 1.4, 1.4 )
+limit_smoothed = true
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+smoothing_speed = 6.0
+
+[node name="luz" type="Light2D" parent="."]
+texture = ExtResource( 22 )
+texture_scale = 0.4
+color = Color( 0, 1, 0.882353, 1 )
+energy = 1.3
+
+[node name="animaciones" type="AnimationPlayer" parent="."]
+"anims/daño" = SubResource( 3 )
+anims/portal = SubResource( 4 )
+
+[node name="animacion telon" type="AnimationPlayer" parent="."]
+anims/telon = SubResource( 5 )
+
+[node name="telon" type="Sprite" parent="animacion telon"]
+scale = Vector2( 6, 6 )
+z_index = 20
+
+[node name="telon" type="ColorRect" parent="animacion telon/telon"]
+margin_left = -4112.0
+margin_top = -4266.0
+margin_right = 4080.0
+margin_bottom = 3926.0
+color = Color( 0, 0, 0, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="temporizadores" type="Node2D" parent="."]
+
+[node name="dash duracion" type="Timer" parent="temporizadores"]
+wait_time = 0.5
+one_shot = true
+
+[node name="tiempo restante" type="Timer" parent="temporizadores"]
+pause_mode = 1
+one_shot = true
+
+[node name="vibracion duracion" type="Timer" parent="temporizadores"]
+
+[node name="particulas" type="Node2D" parent="."]
+
+[node name="dash izquierda" type="Particles2D" parent="particulas"]
+scale = Vector2( 1.5, 1.5 )
+emitting = false
+amount = 12
+lifetime = 0.2
+one_shot = true
+local_coords = false
+process_material = SubResource( 12 )
+texture = ExtResource( 12 )
+
+[node name="dash derecha" type="Particles2D" parent="particulas"]
+scale = Vector2( 1.5, 1.5 )
+emitting = false
+amount = 12
+lifetime = 0.2
+one_shot = true
+local_coords = false
+process_material = SubResource( 12 )
+texture = ExtResource( 11 )
+
+[node name="sangre" type="Particles2D" parent="particulas"]
+visible = false
+scale = Vector2( 1.5, 1.5 )
+amount = 10
+lifetime = 1.5
+speed_scale = 1.5
+explosiveness = 0.4
+randomness = 1.0
+local_coords = false
+draw_order = 1
+process_material = SubResource( 13 )
+
+[node name="sonidos" type="Node2D" parent="."]
+
+[node name="dash" type="AudioStreamPlayer" parent="sonidos"]
+stream = ExtResource( 13 )
+
+[node name="salto" type="AudioStreamPlayer" parent="sonidos"]
+stream = ExtResource( 14 )
+volume_db = 10.0
+
+[node name="daño" type="AudioStreamPlayer" parent="sonidos"]
+stream = ExtResource( 15 )
+volume_db = 15.0
+
+[node name="perder" type="AudioStreamPlayer" parent="sonidos"]
+stream = ExtResource( 16 )
+
+[node name="moneda" type="AudioStreamPlayer" parent="sonidos"]
+stream = ExtResource( 17 )
+volume_db = 5.0

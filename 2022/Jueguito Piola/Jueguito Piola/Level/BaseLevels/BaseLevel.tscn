@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Level/Tileset/Blocks.tres" type="TileSet" id=1]
+[ext_resource path="res://Level/BaseLevels/BaseLevel.gd" type="Script" id=3]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=4]
+
+[node name="BaseLevel" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+
+[node name="DecorationObjects" type="Node2D" parent="."]
+
+[node name="Blocks" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+
+[node name="Other" type="Node2D" parent="Blocks"]
+z_index = -1
+
+[node name="LevelObjects" type="Node2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]

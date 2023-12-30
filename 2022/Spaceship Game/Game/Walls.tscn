@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="SegmentShape2D" id=1]
+a = Vector2( 0, -64 )
+b = Vector2( 0, 64 )
+
+[sub_resource type="SegmentShape2D" id=2]
+a = Vector2( 0, -64 )
+b = Vector2( 0, 64 )
+
+[node name="Walls" type="Node2D"]
+
+[node name="LeftWall" type="Area2D" parent="."]
+position = Vector2( -48, 448 )
+
+[node name="Collider" type="CollisionShape2D" parent="LeftWall"]
+shape = SubResource( 1 )
+
+[node name="RightWall" type="Area2D" parent="."]
+position = Vector2( 368, 448 )
+
+[node name="Collider" type="CollisionShape2D" parent="RightWall"]
+shape = SubResource( 2 )

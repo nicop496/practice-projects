@@ -1,0 +1,217 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://Game/MarginButtons/cash.png" type="Texture" id=1]
+[ext_resource path="res://OdibeeSans-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Game/MarginButtons/PauseScreen/PauseScreen.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Game/MarginButtons/Images/Left - Normal.png" type="Texture" id=4]
+[ext_resource path="res://Game/MarginButtons/Images/Right - Pressed.png" type="Texture" id=5]
+[ext_resource path="res://Game/MarginButtons/Images/Dash - Pressed.png" type="Texture" id=6]
+[ext_resource path="res://Game/MarginButtons/Images/Up - Pressed.png" type="Texture" id=7]
+[ext_resource path="res://Game/MarginButtons/Images/Left - Pressed.png" type="Texture" id=8]
+[ext_resource path="res://Game/MarginButtons/Images/Pause - Pressed.png" type="Texture" id=9]
+[ext_resource path="res://Game/MarginButtons/Images/Music - Pressed.png" type="Texture" id=10]
+[ext_resource path="res://Game/MarginButtons/Images/Music - Normal.png" type="Texture" id=11]
+[ext_resource path="res://Game/MarginButtons/Images/Up - Normal.png" type="Texture" id=12]
+[ext_resource path="res://Game/MarginButtons/Images/Pause - Normal.png" type="Texture" id=13]
+[ext_resource path="res://Game/MarginButtons/Images/Right - Normal.png" type="Texture" id=14]
+[ext_resource path="res://Game/MarginButtons/Images/Dash - Normal.png" type="Texture" id=15]
+[ext_resource path="res://BasicFont.tres" type="DynamicFont" id=16]
+[ext_resource path="res://Game/MarginButtons/CanvasItemMaterial.tres" type="Material" id=17]
+[ext_resource path="res://Game/MarginButtons/MarginButtons.gd" type="Script" id=18]
+[ext_resource path="res://Game/MarginButtons/MusicButton.gd" type="Script" id=19]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+light_mode = 1
+
+[sub_resource type="DynamicFont" id=2]
+size = 13
+font_data = ExtResource( 2 )
+
+[node name="MarginButtons" type="Node2D"]
+z_index = 2
+
+[node name="Control" type="Control" parent="."]
+margin_left = -128.0
+margin_top = -80.0
+margin_right = 128.0
+margin_bottom = 80.0
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Left" type="Control" parent="Control"]
+anchor_bottom = 1.0
+margin_right = 56.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BG" type="ColorRect" parent="Control/Left"]
+material = SubResource( 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -128.0
+margin_top = -48.0
+margin_bottom = 64.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MusicButton" type="TouchScreenButton" parent="Control/Left"]
+pause_mode = 2
+material = ExtResource( 17 )
+position = Vector2( 30, 5.75 )
+normal = ExtResource( 11 )
+pressed = ExtResource( 10 )
+visibility_mode = 1
+script = ExtResource( 19 )
+
+[node name="PauseButton" type="TouchScreenButton" parent="Control/Left"]
+pause_mode = 2
+material = ExtResource( 17 )
+position = Vector2( 6, 5.75 )
+normal = ExtResource( 13 )
+pressed = ExtResource( 9 )
+action = "pause"
+visibility_mode = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Left"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -64.0
+margin_bottom = -8.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RightButton" type="TouchScreenButton" parent="Control/Left/HBoxContainer"]
+material = ExtResource( 17 )
+position = Vector2( 32, 0 )
+scale = Vector2( 0.75, 0.875 )
+normal = ExtResource( 14 )
+pressed = ExtResource( 5 )
+passby_press = true
+action = "right"
+visibility_mode = 1
+
+[node name="LeftButton" type="TouchScreenButton" parent="Control/Left/HBoxContainer"]
+material = ExtResource( 17 )
+scale = Vector2( 0.75, 0.875 )
+normal = ExtResource( 4 )
+pressed = ExtResource( 8 )
+passby_press = true
+action = "left"
+visibility_mode = 1
+
+[node name="Right" type="Control" parent="Control"]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -48.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BG" type="ColorRect" parent="Control/Right"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -48.0
+margin_right = 128.0
+margin_bottom = 64.0
+color = Color( 0.0196078, 0.0196078, 0.0196078, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="VBoxContainer" parent="Control/Right"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -80.0
+margin_bottom = -8.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UpButton" type="TouchScreenButton" parent="Control/Right/HBoxContainer"]
+material = ExtResource( 17 )
+position = Vector2( 8, 40 )
+normal = ExtResource( 12 )
+pressed = ExtResource( 7 )
+action = "jump"
+visibility_mode = 1
+
+[node name="DashButton" type="TouchScreenButton" parent="Control/Right/HBoxContainer"]
+material = ExtResource( 17 )
+position = Vector2( 8, 0 )
+normal = ExtResource( 15 )
+pressed = ExtResource( 6 )
+action = "dash"
+visibility_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Right"]
+anchor_right = 1.0
+margin_top = 8.0
+margin_bottom = 48.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cash" type="HBoxContainer" parent="Control/Right/VBoxContainer"]
+material = ExtResource( 17 )
+margin_right = 48.0
+margin_bottom = 18.0
+custom_constants/separation = 1
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Control/Right/VBoxContainer/Cash"]
+material = ExtResource( 17 )
+margin_left = 13.0
+margin_right = 19.0
+margin_bottom = 18.0
+texture = ExtResource( 1 )
+stretch_mode = 4
+
+[node name="XLabel" type="Label" parent="Control/Right/VBoxContainer/Cash"]
+material = ExtResource( 17 )
+margin_left = 20.0
+margin_right = 27.0
+margin_bottom = 18.0
+custom_fonts/font = ExtResource( 16 )
+text = "×"
+align = 1
+valign = 1
+
+[node name="CashLabel" type="Label" parent="Control/Right/VBoxContainer/Cash"]
+material = ExtResource( 17 )
+margin_left = 28.0
+margin_top = 1.0
+margin_right = 34.0
+margin_bottom = 17.0
+custom_fonts/font = SubResource( 2 )
+text = "0"
+
+[node name="TimeLabel" type="Label" parent="Control/Right/VBoxContainer"]
+material = ExtResource( 17 )
+margin_top = 22.0
+margin_right = 48.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 16 )
+text = "0.0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PauseScreen" parent="Control" instance=ExtResource( 3 )]
+
+[connection signal="released" from="Control/Left/MusicButton" to="Control/Left/MusicButton" method="_on_Music_released"]
+[connection signal="released" from="Control/Left/MusicButton" to="Control/PauseScreen" method="button_pressed"]
+[connection signal="released" from="Control/Left/PauseButton" to="Control/PauseScreen" method="button_pressed"]

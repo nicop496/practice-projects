@@ -1,0 +1,209 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Game/Screens/Levels/LevelObjects/Door.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Game/Screens/Levels/LevelObjects/Coin.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Game/Screens/Levels/LevelObjects/FloorButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Game/Screens/Levels/LevelObjects/MovingPlatform.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Game/Screens/Levels/LevelObjects/StaticPlatform.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Game/Screens/Levels/BaseLevel/BaseLevel.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Game/Screens/Levels/LevelObjects/Trampoline.tscn" type="PackedScene" id=7]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Nueva Animación"
+length = 5.0
+step = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2.5, 3.5, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 444, 324 ), Vector2( 372, 324 ), Vector2( 372, 220 ), Vector2( 444, 220 ), Vector2( 444, 324 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Nueva Animación"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 764, 460 ), Vector2( 820, 460 ) ]
+}
+
+[node name="BaseLevel" instance=ExtResource( 6 )]
+
+[node name="MovingPlatformPaths" parent="." index="2"]
+tile_data = PoolIntArray( 1769518, 1, 65536, 1769519, 1, 1, 1769520, 1, 1, 1769521, 1, 1, 1769522, 1, 1, 1769523, 1, 1, 1769524, 1, 1, 1769525, 1, 1, 1769526, 1, 1, 1769527, 1, 65537, 1835054, 1, 65539, 1835063, 1, 65539, 1900590, 1, 65539, 1900599, 1, 65539, 1966126, 1, 65539, 1966135, 1, 65539, 2031662, 1, 65539, 2031671, 1, 65539, 2097198, 1, 65539, 2097207, 1, 65539, 2162734, 1, 65539, 2162743, 1, 65539, 2228270, 1, 65539, 2228279, 1, 65539, 2293806, 1, 65539, 2293815, 1, 65539, 2359342, 1, 65539, 2359351, 1, 65539, 2424878, 1, 65539, 2424887, 1, 65539, 2490414, 1, 65539, 2490423, 1, 65539, 2555950, 1, 65539, 2555959, 1, 65539, 2621486, 1, 131072, 2621487, 1, 1, 2621488, 1, 1, 2621489, 1, 1, 2621490, 1, 1, 2621491, 1, 1, 2621492, 1, 1, 2621493, 1, 1, 2621494, 1, 1, 2621495, 1, 131073, 3735647, 1, 0, 3735648, 1, 1, 3735649, 1, 1, 3735650, 1, 1, 3735651, 1, 1, 3735652, 1, 1, 3735653, 1, 1, 3735654, 1, 2 )
+
+[node name="BareWires" parent="." index="3"]
+tile_data = PoolIntArray( 917523, 0, 3, 917535, 0, 3, 983059, 0, 65539, 983071, 0, 65539, 1048595, 0, 65539, 1048607, 0, 65539, 1048625, 0, 0, 1048626, 0, 131075, 1048627, 0, 131075, 1048628, 0, 131075, 1048629, 0, 131075, 1048630, 0, 131075, 1048631, 0, 131075, 1048632, 0, 131075, 1048633, 0, 131075, 1048634, 0, 131075, 1048635, 0, 131075, 1048636, 0, 131075, 1048637, 0, 131075, 1048638, 0, 131075, 1048639, 0, 131075, 1048640, 0, 131075, 1048641, 0, 131075, 1048642, 0, 131075, 1048643, 0, 131075, 1048644, 0, 131075, 1048645, 0, 131075, 1048646, 0, 131075, 1048647, 0, 131075, 1048648, 0, 131075, 1048649, 0, 131075, 1048650, 0, 131075, 1048651, 0, 2, 1114131, 0, 65539, 1114143, 0, 65539, 1114161, 0, 65539, 1114187, 0, 65539, 1179667, 0, 65539, 1179679, 0, 65539, 1179697, 0, 65539, 1179723, 0, 65539, 1245203, 0, 65539, 1245215, 0, 65539, 1245233, 0, 65539, 1245259, 0, 65539, 1310739, 0, 65539, 1310751, 0, 65539, 1310769, 0, 65539, 1310795, 0, 65539, 1376275, 0, 65539, 1376287, 0, 65539, 1376305, 0, 3, 1376331, 0, 65539, 1441811, 0, 131072, 1441812, 0, 3, 1441814, 0, 3, 1441815, 0, 131075, 1441816, 0, 2, 1441823, 0, 65539, 1441842, 0, 3, 1441843, 0, 131075, 1441844, 0, 3, 1441849, 0, 3, 1441850, 0, 131075, 1441851, 0, 131075, 1441852, 0, 131075, 1441853, 0, 131075, 1441854, 0, 131075, 1441855, 0, 131075, 1441856, 0, 131075, 1441857, 0, 131075, 1441858, 0, 131075, 1441859, 0, 131075, 1441860, 0, 131075, 1441861, 0, 131075, 1441862, 0, 3, 1441867, 0, 65539, 1507352, 0, 65536, 1507353, 0, 3, 1507359, 0, 65539, 1507403, 0, 65539, 1572875, 0, 0, 1572876, 0, 131075, 1572877, 0, 131075, 1572878, 0, 131075, 1572879, 0, 131075, 1572880, 0, 131075, 1572881, 0, 131075, 1572882, 0, 1, 1572883, 0, 131075, 1572884, 0, 131075, 1572885, 0, 131075, 1572886, 0, 131075, 1572887, 0, 131075, 1572888, 0, 131074, 1572895, 0, 65539, 1572939, 0, 65539, 1638411, 0, 65539, 1638418, 0, 3, 1638431, 0, 65539, 1638475, 0, 65539, 1703947, 0, 65539, 1703967, 0, 65539, 1704001, 0, 3, 1704011, 0, 65539, 1769483, 0, 65539, 1769503, 0, 65539, 1769537, 0, 65539, 1769547, 0, 65539, 1835017, 0, 0, 1835018, 0, 131075, 1835019, 0, 131074, 1835026, 0, 3, 1835037, 0, 0, 1835038, 0, 131075, 1835039, 0, 131073, 1835040, 0, 131075, 1835041, 0, 2, 1835073, 0, 65539, 1835083, 0, 65539, 1900546, 0, 0, 1900547, 0, 131075, 1900548, 0, 131075, 1900549, 0, 131075, 1900550, 0, 131075, 1900551, 0, 131075, 1900552, 0, 131075, 1900553, 0, 131074, 1900562, 0, 65539, 1900567, 0, 0, 1900568, 0, 131075, 1900569, 0, 131075, 1900570, 0, 131075, 1900571, 0, 131075, 1900572, 0, 131075, 1900573, 0, 65538, 1900577, 0, 65536, 1900578, 0, 131075, 1900579, 0, 131075, 1900580, 0, 131075, 1900581, 0, 131075, 1900582, 0, 131075, 1900583, 0, 131075, 1900584, 0, 131075, 1900585, 0, 131075, 1900586, 0, 131075, 1900587, 0, 131075, 1900588, 0, 131075, 1900589, 0, 131075, 1900590, 0, 131075, 1900591, 0, 131075, 1900592, 0, 131075, 1900593, 0, 131075, 1900594, 0, 131075, 1900595, 0, 131075, 1900596, 0, 131075, 1900597, 0, 131075, 1900598, 0, 131075, 1900599, 0, 131075, 1900600, 0, 131075, 1900601, 0, 131075, 1900602, 0, 131075, 1900603, 0, 131075, 1900604, 0, 131075, 1900605, 0, 131075, 1900606, 0, 131075, 1900607, 0, 131075, 1900608, 0, 131075, 1900609, 0, 131073, 1900610, 0, 131075, 1900611, 0, 131075, 1900612, 0, 131075, 1900613, 0, 131075, 1900614, 0, 131075, 1900615, 0, 131075, 1900616, 0, 131075, 1900617, 0, 131075, 1900618, 0, 131075, 1900619, 0, 131074, 1966082, 0, 65539, 1966098, 0, 65539, 1966103, 0, 65539, 1966109, 0, 65539, 1966113, 0, 65539, 2031618, 0, 65539, 2031634, 0, 65539, 2031639, 0, 65539, 2031645, 0, 131072, 2031646, 0, 131075, 2031647, 0, 131075, 2031648, 0, 131075, 2031649, 0, 131074, 2097154, 0, 65539, 2097163, 0, 3, 2097170, 0, 65539, 2097175, 0, 65539, 2162690, 0, 65536, 2162691, 0, 3, 2162693, 0, 3, 2162694, 0, 1, 2162695, 0, 131075, 2162696, 0, 131075, 2162697, 0, 131075, 2162698, 0, 131075, 2162699, 0, 131073, 2162700, 0, 131075, 2162701, 0, 131075, 2162702, 0, 131075, 2162703, 0, 131075, 2162704, 0, 131075, 2162705, 0, 131075, 2162706, 0, 131073, 2162707, 0, 131075, 2162708, 0, 131075, 2162709, 0, 131075, 2162710, 0, 131075, 2162711, 0, 131074, 2228226, 0, 65539, 2228230, 0, 65539, 2293762, 0, 65539, 2293766, 0, 65539, 2359298, 0, 131072, 2359299, 0, 131075, 2359300, 0, 131075, 2359301, 0, 131075, 2359302, 0, 131074 )
+
+[node name="Wires" parent="." index="4"]
+tile_data = PoolIntArray( 655379, 0, 65536, 655380, 0, 1, 655381, 0, 1, 655382, 0, 1, 655383, 0, 1, 655384, 0, 1, 655385, 0, 1, 655386, 0, 1, 655387, 0, 1, 655388, 0, 1, 655389, 0, 1, 655390, 0, 1, 655391, 0, 1, 655392, 0, 1, 655393, 0, 1, 655394, 0, 1, 655395, 0, 65538, 720915, 0, 131075, 720931, 0, 131075, 786451, 0, 131075, 786467, 0, 131075, 851987, 0, 131075, 852003, 0, 131075, 917523, 0, 196611, 917535, 0, 3, 917539, 0, 131075, 983075, 0, 131075, 1048611, 0, 131075, 1114147, 0, 131075, 1179683, 0, 131075, 1245219, 0, 131075, 1310755, 0, 131075, 1310769, 0, 65539, 1376291, 0, 196608, 1376292, 0, 1, 1376293, 0, 1, 1376294, 0, 1, 1376295, 0, 1, 1376296, 0, 1, 1376297, 0, 1, 1376298, 0, 1, 1376299, 0, 1, 1376300, 0, 1, 1376301, 0, 1, 1376302, 0, 1, 1376303, 0, 1, 1376304, 0, 1, 1376305, 0, 131074, 1441812, 0, 0, 1441813, 0, 1, 1441814, 0, 2, 1441841, 0, 131072, 1441842, 0, 1, 1441843, 0, 1, 1441844, 0, 1, 1441845, 0, 2, 1441848, 0, 65536, 1441849, 0, 1, 1441850, 0, 2, 1441862, 0, 0, 1441863, 0, 2, 1507353, 0, 0, 1507354, 0, 2, 1507377, 0, 131075, 1507384, 0, 131075, 1572913, 0, 131075, 1572920, 0, 131075, 1638418, 0, 3, 1638449, 0, 131075, 1638456, 0, 131072, 1638457, 0, 1, 1638458, 0, 1, 1638459, 0, 1, 1638460, 0, 1, 1638461, 0, 1, 1638462, 0, 1, 1638463, 0, 1, 1638464, 0, 1, 1638465, 0, 65538, 1703976, 0, 3, 1703978, 0, 3, 1703980, 0, 3, 1703982, 0, 3, 1703985, 0, 196611, 1703992, 0, 131075, 1704001, 0, 196611, 1769528, 0, 131075, 1769543, 0, 3, 1835019, 0, 3, 1835026, 0, 3, 1835037, 0, 3, 1835041, 0, 3, 1835064, 0, 131075, 1900550, 0, 0, 1900551, 0, 1, 1900552, 0, 2, 1900567, 0, 65536, 1900568, 0, 2, 1900599, 0, 0, 1900600, 0, 196609, 1900601, 0, 2, 1966103, 0, 196611, 2097163, 0, 65539, 2162691, 0, 0, 2162692, 0, 1, 2162693, 0, 2, 2162698, 0, 0, 2162699, 0, 196609, 2162700, 0, 2, 2162703, 0, 3 )
+
+[node name="StaticPlatform" parent="OtherObjects" index="0" instance=ExtResource( 5 )]
+position = Vector2( 432, 368 )
+
+[node name="FloorButton" parent="OtherObjects" index="1" instance=ExtResource( 3 )]
+position = Vector2( 344, 352 )
+group = "Btn2"
+
+[node name="MovingPlatform" parent="OtherObjects" index="2" groups=[
+"Btn2",
+] instance=ExtResource( 4 )]
+position = Vector2( 444, 324 )
+play_backwards = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="OtherObjects/MovingPlatform" index="2"]
+"anims/Nueva Animación" = SubResource( 1 )
+
+[node name="StaticPlatform2" parent="OtherObjects" index="3" instance=ExtResource( 5 )]
+position = Vector2( 864, 352 )
+
+[node name="FloorButton2" parent="OtherObjects" index="4" instance=ExtResource( 3 )]
+position = Vector2( 784, 408 )
+rotation = -1.5708
+group = "Btn4"
+
+[node name="MovingPlatform2" parent="OtherObjects" index="5" groups=[
+"Btn4",
+] instance=ExtResource( 4 )]
+position = Vector2( 764, 460 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="OtherObjects/MovingPlatform2" index="2"]
+"anims/Nueva Animación" = SubResource( 2 )
+
+[node name="StaticPlatform3" parent="OtherObjects" index="6" instance=ExtResource( 5 )]
+position = Vector2( 896, 432 )
+scale = Vector2( -1, 1 )
+
+[node name="Trampolin" parent="OtherObjects" index="7" instance=ExtResource( 7 )]
+position = Vector2( 248, 528 )
+
+[node name="Trampolin2" parent="OtherObjects" index="8" instance=ExtResource( 7 )]
+position = Vector2( 472, 448 )
+
+[node name="Trampolin3" parent="OtherObjects" index="9" instance=ExtResource( 7 )]
+position = Vector2( 884, 432 )
+
+[node name="Trampolin4" parent="OtherObjects" index="10" instance=ExtResource( 7 )]
+position = Vector2( 536, 448 )
+
+[node name="FloorButton3" parent="OtherObjects" index="11" instance=ExtResource( 3 )]
+position = Vector2( 320, 192 )
+rotation = 1.5708
+group = "Btn3"
+
+[node name="Door" parent="OtherObjects" index="12" groups=[
+"Btn3",
+] instance=ExtResource( 1 )]
+position = Vector2( 504, 200 )
+
+[node name="Coin" parent="Coins" index="0" instance=ExtResource( 2 )]
+position = Vector2( 296, 432 )
+
+[node name="Coin2" parent="Coins" index="1" instance=ExtResource( 2 )]
+position = Vector2( 336, 192 )
+
+[node name="Coin3" parent="Coins" index="2" instance=ExtResource( 2 )]
+position = Vector2( 344, 336 )
+
+[node name="Coin12" parent="Coins" index="3" instance=ExtResource( 2 )]
+position = Vector2( 648, 408 )
+
+[node name="Coin13" parent="Coins" index="4" instance=ExtResource( 2 )]
+position = Vector2( 680, 408 )
+
+[node name="Coin14" parent="Coins" index="5" instance=ExtResource( 2 )]
+position = Vector2( 712, 408 )
+
+[node name="Coin15" parent="Coins" index="6" instance=ExtResource( 2 )]
+position = Vector2( 744, 408 )
+
+[node name="Coin16" parent="Coins" index="7" instance=ExtResource( 2 )]
+position = Vector2( 792, 440 )
+
+[node name="Coin17" parent="Coins" index="8" instance=ExtResource( 2 )]
+position = Vector2( 884, 344 )
+
+[node name="Coin4" parent="Coins" index="9" instance=ExtResource( 2 )]
+position = Vector2( 536, 232 )
+
+[node name="Coin5" parent="Coins" index="10" instance=ExtResource( 2 )]
+position = Vector2( 536, 280 )
+
+[node name="Coin6" parent="Coins" index="11" instance=ExtResource( 2 )]
+position = Vector2( 536, 328 )
+
+[node name="Coin24" parent="Coins" index="12" instance=ExtResource( 2 )]
+position = Vector2( 536, 376 )
+
+[node name="Coin7" parent="Coins" index="13" instance=ExtResource( 2 )]
+position = Vector2( 1016, 312 )
+
+[node name="Coin8" parent="Coins" index="14" instance=ExtResource( 2 )]
+position = Vector2( 984, 320 )
+
+[node name="Coin9" parent="Coins" index="15" instance=ExtResource( 2 )]
+position = Vector2( 1080, 320 )
+
+[node name="Coin10" parent="Coins" index="16" instance=ExtResource( 2 )]
+position = Vector2( 944, 336 )
+
+[node name="Coin11" parent="Coins" index="17" instance=ExtResource( 2 )]
+position = Vector2( 1120, 336 )
+
+[node name="Coin18" parent="Coins" index="18" instance=ExtResource( 2 )]
+position = Vector2( 1048, 312 )
+
+[node name="Coin19" parent="Coins" index="19" instance=ExtResource( 2 )]
+position = Vector2( 1144, 424 )
+
+[node name="Coin20" parent="Coins" index="20" instance=ExtResource( 2 )]
+position = Vector2( 1160, 360 )
+
+[node name="Coin21" parent="Coins" index="21" instance=ExtResource( 2 )]
+position = Vector2( 1048, 384 )
+
+[node name="Coin22" parent="Coins" index="22" instance=ExtResource( 2 )]
+position = Vector2( 1016, 384 )
+
+[node name="Coin23" parent="Coins" index="23" instance=ExtResource( 2 )]
+position = Vector2( 984, 384 )
+
+[node name="HighScore" parent="." index="7"]
+margin_left = 48.0
+margin_top = 544.0
+margin_right = 96.0
+margin_bottom = 576.0
+
+[node name="Portal" parent="." index="8"]
+position = Vector2( 928, 384 )
+
+[node name="FloorButton" parent="." index="9"]
+position = Vector2( 120, 480 )
+rotation = 3.14159
+
+[node name="Door" parent="." index="10"]
+position = Vector2( 184, 488 )
+
+[node name="Player" parent="." index="11"]
+position = Vector2( 72, 520 )
+
+[node name="Lightning" parent="." index="12"]
+position = Vector2( -80, -56 )
+speed = Vector2( 42.5, 0 )
+
+[connection signal="animation_finished" from="OtherObjects/MovingPlatform/AnimationPlayer" to="OtherObjects/MovingPlatform" method="on_AnimationPlayer_animation_finished"]
+[connection signal="animation_finished" from="OtherObjects/MovingPlatform2/AnimationPlayer" to="OtherObjects/MovingPlatform2" method="on_AnimationPlayer_animation_finished"]

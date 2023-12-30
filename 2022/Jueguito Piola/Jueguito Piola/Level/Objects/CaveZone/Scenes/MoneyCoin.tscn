@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Level/Objects/CoinSpriteFrames.tres" type="SpriteFrames" id=1]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends \"res://Level/Objects/Scripts/Coin.gd\"
+
+
+func _on_MoneyCoin_body_entered(body):
+	on_body_entered(body)
+"
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 5.04279, 4.83036 )
+
+[node name="MoneyCoin" type="Area2D"]
+script = SubResource( 1 )
+VALUE = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( -4.76837e-07, 7.15256e-07 )
+scale = Vector2( 0.2, 0.2 )
+frames = ExtResource( 1 )
+animation = "Money"
+speed_scale = 2.5
+playing = true
+
+[connection signal="body_entered" from="." to="." method="_on_MoneyCoin_body_entered"]

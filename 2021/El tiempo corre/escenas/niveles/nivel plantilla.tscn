@@ -1,0 +1,68 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://escenas/niveles/tileset 1.tres" type="TileSet" id=1]
+[ext_resource path="res://assets/imagenes/jugador/2021-06-12_15.53.42.png" type="Texture" id=3]
+[ext_resource path="res://objetos/portal.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scripts/posicion jugador.gd" type="Script" id=9]
+
+[node name="nivel" type="Node2D"]
+
+[node name="fondo" type="ColorRect" parent="."]
+margin_left = -3752.0
+margin_top = -3592.0
+margin_right = 4440.0
+margin_bottom = 4600.0
+color = Color( 0, 0.152941, 0.317647, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lluvia" type="CPUParticles2D" parent="."]
+position = Vector2( 200, 350 )
+amount = 5000
+lifetime = 20.0
+speed_scale = 0.5
+randomness = 1.0
+lifetime_randomness = 1.0
+draw_order = 1
+emission_shape = 2
+emission_rect_extents = Vector2( 1000, 500 )
+spread = 93.86
+gravity = Vector2( 80, 98 )
+angular_velocity = 720.0
+angular_velocity_random = 1.0
+linear_accel = 100.0
+linear_accel_random = 1.0
+damping = 100.0
+damping_random = 1.0
+scale_amount = 0.8
+hue_variation = 1.0
+hue_variation_random = 0.04
+anim_speed = 17.37
+anim_speed_random = 1.0
+anim_offset = 1.0
+anim_offset_random = 1.0
+
+[node name="portal" parent="." instance=ExtResource( 5 )]
+
+[node name="mapa" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+collision_use_kinematic = true
+collision_friction = 0.0
+format = 1
+
+[node name="monedas" type="Node2D" parent="mapa"]
+
+[node name="sierras" type="Node2D" parent="mapa"]
+
+[node name="ardillas" type="Node2D" parent="mapa"]
+
+[node name="plataformas moviles" type="Node2D" parent="mapa"]
+
+[node name="vallas electricas" type="Node2D" parent="mapa"]
+
+[node name="posicion jugador" type="Sprite" parent="."]
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 3 )
+script = ExtResource( 9 )

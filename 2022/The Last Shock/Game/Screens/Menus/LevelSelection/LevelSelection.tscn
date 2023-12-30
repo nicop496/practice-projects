@@ -1,0 +1,191 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Game/Screens/Menus/LevelSelection/LevelSelection.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Images/Buttons/Normal/Settings.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Images/Buttons/Pressed/Settings.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Images/Buttons/Pressed/Back.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Images/Buttons/Normal/Back.png" type="Texture" id=5]
+[ext_resource path="res://Game/Screens/Menus/LevelSelection/LevelButton/LevelButton.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Game/Screens/Background.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Assets/Fonts/PressStart2P-Regular.ttf" type="DynamicFontData" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 8
+outline_size = 1
+outline_color = Color( 0.45098, 0.45098, 0.45098, 1 )
+extra_spacing_top = 12
+extra_spacing_bottom = 4
+font_data = ExtResource( 8 )
+
+[node name="LevelSelection" type="Control"]
+margin_right = 256.0
+margin_bottom = 144.0
+rect_pivot_offset = Vector2( -168, -72 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" parent="." instance=ExtResource( 7 )]
+
+[node name="Label" type="Label" parent="."]
+anchor_right = 1.0
+margin_bottom = 32.0
+custom_fonts/font = SubResource( 1 )
+text = "Select Level"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="Label"]
+margin_right = 32.0
+margin_bottom = 32.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackButton" type="TextureButton" parent="Label/CenterContainer"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 24.0
+margin_bottom = 24.0
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer2" type="CenterContainer" parent="Label"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -32.0
+margin_bottom = 32.0
+
+[node name="SettingsButton" type="TextureButton" parent="Label/CenterContainer2"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 24.0
+margin_bottom = 24.0
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -46.0
+margin_bottom = 72.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="CenterContainer"]
+margin_left = 48.0
+margin_top = 13.0
+margin_right = 208.0
+margin_bottom = 105.0
+custom_constants/vseparation = 10
+custom_constants/hseparation = 10
+columns = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="1" parent="CenterContainer/GridContainer" instance=ExtResource( 6 )]
+level_path = "res://Game/Screens/Levels/1.tscn"
+
+[node name="2" parent="CenterContainer/GridContainer" instance=ExtResource( 6 )]
+margin_left = 34.0
+margin_right = 58.0
+disabled = true
+
+[node name="3" parent="CenterContainer/GridContainer" instance=ExtResource( 6 )]
+margin_left = 68.0
+margin_right = 92.0
+disabled = true
+
+[node name="4" parent="CenterContainer/GridContainer" instance=ExtResource( 6 )]
+margin_left = 102.0
+margin_right = 126.0
+disabled = true
+
+[node name="5" parent="CenterContainer/GridContainer" instance=ExtResource( 6 )]
+margin_left = 136.0
+margin_right = 160.0
+disabled = true
+
+[node name="6" parent="CenterContainer/GridContainer" instance=ExtResource( 6 )]
+margin_top = 34.0
+margin_bottom = 58.0
+disabled = true
+
+[node name="7" parent="CenterContainer/GridContainer" instance=ExtResource( 6 )]
+margin_left = 34.0
+margin_top = 34.0
+margin_right = 58.0
+margin_bottom = 58.0
+disabled = true
+
+[node name="8" parent="CenterContainer/GridContainer" instance=ExtResource( 6 )]
+margin_left = 68.0
+margin_top = 34.0
+margin_right = 92.0
+margin_bottom = 58.0
+disabled = true
+
+[node name="9" parent="CenterContainer/GridContainer" instance=ExtResource( 6 )]
+margin_left = 102.0
+margin_top = 34.0
+margin_right = 126.0
+margin_bottom = 58.0
+disabled = true
+
+[node name="10" parent="CenterContainer/GridContainer" instance=ExtResource( 6 )]
+margin_left = 136.0
+margin_top = 34.0
+margin_right = 160.0
+margin_bottom = 58.0
+disabled = true
+
+[node name="11" parent="CenterContainer/GridContainer" instance=ExtResource( 6 )]
+margin_top = 68.0
+margin_bottom = 92.0
+disabled = true
+
+[node name="12" parent="CenterContainer/GridContainer" instance=ExtResource( 6 )]
+margin_left = 34.0
+margin_top = 68.0
+margin_right = 58.0
+margin_bottom = 92.0
+disabled = true
+
+[node name="13" parent="CenterContainer/GridContainer" instance=ExtResource( 6 )]
+margin_left = 68.0
+margin_top = 68.0
+margin_right = 92.0
+margin_bottom = 92.0
+disabled = true
+
+[node name="14" parent="CenterContainer/GridContainer" instance=ExtResource( 6 )]
+margin_left = 102.0
+margin_top = 68.0
+margin_right = 126.0
+margin_bottom = 92.0
+disabled = true
+
+[node name="15" parent="CenterContainer/GridContainer" instance=ExtResource( 6 )]
+margin_left = 136.0
+margin_top = 68.0
+margin_right = 160.0
+margin_bottom = 92.0
+disabled = true
+
+[connection signal="pressed" from="Label/CenterContainer/BackButton" to="." method="_on_BackButton_pressed"]
+[connection signal="pressed" from="Label/CenterContainer2/SettingsButton" to="." method="_on_SettingsButton_pressed"]

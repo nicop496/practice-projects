@@ -1,0 +1,109 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Assets/Images/Character/Character.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://Assets/Fonts/BasicFont.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Assets/Images/LevelObjects/Lightning.png" type="Texture" id=3]
+[ext_resource path="res://Game/Screens/Background.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Game/Screens/Menus/Start/StartScreen.gd" type="Script" id=5]
+[ext_resource path="res://Assets/Fonts/PressStart2P-Regular.ttf" type="DynamicFontData" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 24
+outline_size = 2
+outline_color = Color( 0.4, 0.4, 0.4, 1 )
+extra_spacing_top = 10
+extra_spacing_char = 2
+extra_spacing_space = -16
+font_data = ExtResource( 6 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 8, 512 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 3 )
+region = Rect2( 8, 0, 8, 512 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ SubResource( 2 ), SubResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.01
+} ]
+
+[sub_resource type="Animation" id=5]
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[node name="StartScreen" type="Control"]
+margin_right = 256.0
+margin_bottom = 144.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" parent="." instance=ExtResource( 4 )]
+
+[node name="Title" type="Label" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -256.0
+margin_top = -144.0
+margin_bottom = -23.0
+custom_fonts/font = SubResource( 1 )
+text = "The
+Last Shock"
+align = 2
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Lightning" type="AnimatedSprite" parent="Title"]
+position = Vector2( 0, 112 )
+rotation = 1.5708
+z_index = -1
+frames = SubResource( 4 )
+playing = true
+
+[node name="Character" type="AnimatedSprite" parent="."]
+position = Vector2( 72, 56 )
+scale = Vector2( 3.5, 3.5 )
+frames = ExtResource( 1 )
+animation = "Idle"
+frame = 2
+speed_scale = 0.8
+playing = true
+
+[node name="Label" type="Label" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -16.0
+custom_fonts/font = ExtResource( 2 )
+text = "Tap to start"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "TapToStart"
+anims/TapToStart = SubResource( 5 )

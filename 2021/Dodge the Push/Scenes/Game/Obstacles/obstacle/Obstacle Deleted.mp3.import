@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Obstacle Deleted.mp3-3beb0264338ab007b62e415e763eb175.mp3str"
+
+[deps]
+
+source_file="res://Scenes/Game/Obstacles/obstacle/Obstacle Deleted.mp3"
+dest_files=[ "res://.import/Obstacle Deleted.mp3-3beb0264338ab007b62e415e763eb175.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

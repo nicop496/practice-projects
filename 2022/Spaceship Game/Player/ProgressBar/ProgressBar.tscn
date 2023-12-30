@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Player/ProgressBar/life bar.png" type="Texture" id=1]
+[ext_resource path="res://Player/ProgressBar/ProgressBar.gd" type="Script" id=4]
+
+[node name="ProgressBar" type="TextureProgress"]
+margin_right = 192.0
+margin_bottom = 32.0
+texture_under = ExtResource( 1 )
+texture_progress = ExtResource( 1 )
+tint_under = Color( 0.54902, 0.54902, 0.54902, 0.572549 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="value_changed" from="." to="." method="_on_LifeBar_value_changed"]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Portal.mp3-b3c55b02b35eae53a7e3eb650c7a99e0.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/SoundEffects/Portal.mp3"
+dest_files=[ "res://.import/Portal.mp3-b3c55b02b35eae53a7e3eb650c7a99e0.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

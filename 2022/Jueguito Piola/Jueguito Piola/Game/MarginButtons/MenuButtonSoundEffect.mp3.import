@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/MenuButtonSoundEffect.mp3-4e555cde3393718b2f9a20c986dd31f0.mp3str"
+
+[deps]
+
+source_file="res://Game/MarginButtons/MenuButtonSoundEffect.mp3"
+dest_files=[ "res://.import/MenuButtonSoundEffect.mp3-4e555cde3393718b2f9a20c986dd31f0.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Level/Objects/CoinSpriteFrames.tres" type="SpriteFrames" id=1]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends \"res://Level/Objects/Scripts/Coin.gd\"
+
+
+func _on_CentCoin_body_entered(body):
+	on_body_entered(body)
+"
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 3.04048, 3.73648 )
+
+[node name="CentCoin" type="Area2D"]
+script = SubResource( 1 )
+VALUE = 0.01
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -0.140308 )
+scale = Vector2( 0.2, 0.2 )
+frames = ExtResource( 1 )
+animation = "Cent"
+speed_scale = 3.0
+playing = true
+
+[connection signal="body_entered" from="." to="." method="_on_CentCoin_body_entered"]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/viento fuerte.mp3-296a8b7555d67403c7cf4835b664d553.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/viento fuerte.mp3"
+dest_files=[ "res://.import/viento fuerte.mp3-296a8b7555d67403c7cf4835b664d553.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ambiente.mp3-6ca7041cd1dc27f928fc444fa0bf164f.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/ambiente.mp3"
+dest_files=[ "res://.import/ambiente.mp3-6ca7041cd1dc27f928fc444fa0bf164f.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

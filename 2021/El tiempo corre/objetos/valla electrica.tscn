@@ -1,0 +1,113 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/imagenes/valla electrica/muro.png" type="Texture" id=1]
+[ext_resource path="res://assets/imagenes/valla electrica/electricidad.png" type="Texture" id=2]
+[ext_resource path="res://scripts/electricidad.gd" type="Script" id=3]
+[ext_resource path="res://assets/imagenes/ambiente o decoracion/luz.png" type="Texture" id=4]
+[ext_resource path="res://assets/imagenes/valla electrica/electricidad de muro.png" type="Texture" id=5]
+
+[sub_resource type="SegmentShape2D" id=1]
+b = Vector2( -32, 0 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "electricidad"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("elec:flip_v")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("elec der:flip_v")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("elec izq:flip_v")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 1.95027, 6.47946 )
+
+[node name="valla electrica" type="StaticBody2D"]
+pause_mode = 1
+position = Vector2( -16, 0 )
+scale = Vector2( 1.5, 1 )
+
+[node name="electricidad" type="Area2D" parent="."]
+script = ExtResource( 3 )
+
+[node name="luz" type="Light2D" parent="electricidad"]
+visible = false
+position = Vector2( 16.0957, 0 )
+texture = ExtResource( 4 )
+texture_scale = 0.2
+energy = 2.0
+
+[node name="muro der" type="Sprite" parent="electricidad"]
+position = Vector2( 1.94454, 0 )
+texture = ExtResource( 1 )
+
+[node name="muro izq" type="Sprite" parent="electricidad"]
+position = Vector2( 32, 0 )
+texture = ExtResource( 1 )
+flip_h = true
+
+[node name="elec izq" type="Sprite" parent="electricidad"]
+position = Vector2( 8, 0 )
+texture = ExtResource( 5 )
+flip_h = true
+
+[node name="elec der" type="Sprite" parent="electricidad"]
+position = Vector2( 32, 0 )
+texture = ExtResource( 5 )
+flip_h = true
+
+[node name="elec" type="Sprite" parent="electricidad"]
+position = Vector2( 16, 0 )
+texture = ExtResource( 2 )
+
+[node name="collider elec" type="CollisionShape2D" parent="electricidad"]
+visible = false
+position = Vector2( 32, 0 )
+shape = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="electricidad"]
+autoplay = "electricidad"
+anims/electricidad = SubResource( 2 )
+
+[node name="collider 1" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( -2.07613, 1.46979 )
+shape = SubResource( 3 )
+
+[node name="collider 2" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 36.013, 1.46979 )
+shape = SubResource( 3 )
+
+[connection signal="body_entered" from="electricidad" to="electricidad" method="_on_electricidad_body_entered"]
